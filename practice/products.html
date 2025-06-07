@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product List</title>
+  <link rel="stylesheet" href="styles/base.css" />
+  <link rel="stylesheet" href="styles/sideBar.css" />
+  <link rel="stylesheet" href="styles/product.css" />
+</head>
+
+<body>
+  <div class="container">
+    <aside class="sidebar" id="sidebar">
+      <div>
+        <div class="sidebar-top">
+          <div class="brand">
+            <img src="assets/LogoIcon.svg" alt="Logo" class="logo" />
+            <span class="brand-text">Dashdark X</span>
+          </div>
+          <img class="toggle-btn" src="assets/icons/leftChevron.svg" alt="icon" id="toggleSidebar" />
+        </div>
+
+        <nav class="menu">
+          <a href="index.html" class="menu-item" id="dashboardMenu">
+            <div class="icon-container">
+              <img src="assets/icons/defaultHome.svg" class="icon default-icon" />
+              <img src="assets/icons/hoverHome.svg" class="icon hover-icon" />
+              <img src="assets/icons/selectedHome.svg" class="icon selected-icon" />
+            </div>
+            <span class="text">Dashboard</span>
+          </a>
+          <a href="products.html" class="menu-item selected" id="dashboardMenu">
+            <div class="icon-container">
+              <img src="assets/icons/defaultProduct.svg" class="icon default-icon" />
+              <img src="assets/icons/hoverProduct.svg" class="icon hover-icon" />
+              <img src="assets/icons/selectedProduct.svg" class="icon selected-icon" />
+            </div>
+            <span class="text">Product List</span>
+          </a>
+        </nav>
+      </div>
+      <div class="user-profile">
+        <div style="display: flex;align-items: center;gap: 8px;">
+          <img src="assets/icons/userProfile.svg" alt="User" class="avatar" />
+          <span class="username">John Carter</span>
+        </div>
+
+        <img class="toggle-btn" src="assets/icons/rightChevron.svg" alt="icon" />
+      </div>
+    </aside>
+
+    <main class="product-list-page">
+      <header class="product-header">
+        <div style="display: flex;align-items: center;gap: 50px;">
+          <h1 style="color: #fff;">Product List</h1>
+          <div class="search-wrapper">
+            <img src="assets/icons/search.svg" class="search-icon" alt="Search Icon" />
+            <input type="text" id="searchInput" placeholder="Search for product..." class="search-input" />
+          </div>
+
+        </div>
+        <div class="actions">
+          <button class="add-product-btn">Add New Product</button>
+        </div>
+      </header>
+
+      <section class="product-table-wrapper">
+        <div class="table-header">
+          <span class="product-title">All Products</span>
+          <span class="product-count"><span id="currentRange">1 - 9</span> of <span id="totalCount">256</span></span>
+        </div>
+        <table class="product-table">
+          <thead>
+            <tr>
+              <th style="padding-right: 0px;"><label class="custom-checkbox master">
+                  <input type="checkbox" id="selectAll" />
+                  <span class="checkmark"></span>
+                </label></th>
+              <th><img src="assets/icons/hoverProduct.svg" /> Product Name</th>
+              <th><img src="assets/icons/bag.svg" /> Category</th>
+              <th><img src="assets/icons/dollar.svg" /> Price</th>
+              <th><img src="assets/icons/suitecase.svg" /> Company</th>
+              <th><img src="assets/icons/checkbox.svg" /> Status</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="productTableBody">
+            <!-- Dynamically populated rows -->
+            <tr id="noDataRow" class="no-data-row" style="display: none;">
+              <td colspan="7" style="text-align: center; padding: 1rem; color: var(--text-light);">
+                No data found.
+              </td>
+            </tr>
+
+          </tbody>
+        </table>
+
+      </section>
+      <div class="table-footer">
+        <div class="pagination-left">
+          <span class="pagination-range" id="rangeText">1 – 10 of 460</span>
+        </div>
+        <div class="pagination-right">
+          <span class="pagination-label">Rows per page:</span>
+          <select id="rowsPerPage">
+            <option value="9">9</option>
+            <option value="15">15</option>
+            <option value="25">25</option>
+          </select>
+          <button class="page-btn" id="prevPage">
+            <img src="assets/icons/leftChevron.svg" alt="prev" />
+          </button>
+          <button class="page-btn" id="nextPage">
+            <img src="assets/icons/rightChevron.svg" alt="next" />
+          </button>
+        </div>
+      </div>
+
+    </main>
+    <!-- Product Modal -->
+    <div id="productModal" class="modal-overlay hidden">
+      <div class="modal">
+        <div class="modal-header">
+          <h2 id="modalName">-</h2>
+          <button class="close-modal" id="closeModalBtn">&times;</button>
+        </div>
+        <form id="productForm">
+          <div class="form">
+
+
+            <div class="form-group">
+              <label for="productName">
+                <img src="assets/icons/hoverProduct.svg" sizes="12px" />
+                Product name</label>
+              <input type="text" id="productName" required />
+            </div>
+            <hr class="hr" />
+            <div class="form-group">
+              <label for="productImage">
+                <img src="assets/icons/frame.svg" sizes="12px" /> Product photo</label>
+              <div class="upload-box" id="uploadBox">
+                <input type="file" id="productImage" accept="image/*" hidden />
+                <div id="uploadArea" class="upload-area">
+                  <img src="assets/icons/dragdrop.svg" alt="icon" height="32px" width="32px" id="uploadIcon" />
+                  <p id="uploadText">
+                    <span class="upload-text">Click to upload</span> or drag and drop<br />
+                    SVG, PNG, JPG or GIF (max. 800 x 400px)
+                  </p>
+
+                  <div id="previewContainer" class="product-preview hidden">
+                    <div class="product-prof"><img id="imagePreview" /></div>
+                    <div class="actions">
+                      <span id="editImage" class="link">Edit</span> |
+                      <span id="deleteImage" class="link">Delete</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+            <hr class="hr" />
+
+            <div class="form-group">
+              <label for="productCategory">
+                <img src="assets/icons/bag.svg" sizes="12px" /> Category</label>
+              <div class="custom-select-wrapper">
+                <div class="custom-select-trigger" id="categoryTrigger">
+                  <span>Select Category</span>
+                  <img src="assets/icons/downChevron.svg" class="chevron-icon" />
+                </div>
+                <ul class="custom-options" id="categoryOptions"></ul>
+              </div>
+            </div>
+            <hr class="hr" />
+
+            <div class="form-group">
+              <label for="productPrice">
+                <img src="assets/icons/dollar.svg" sizes="12px" /> Price (in $)</label>
+              <input type="number" id="productPrice" required />
+            </div>
+            <hr class="hr" />
+
+            <div class="form-group">
+              <label for="productCompany">
+                <img src="assets/icons/suitecase.svg" sizes="12px" /> Company</label>
+              <div class="custom-select-wrapper">
+                <div class="custom-select-trigger" id="companyTrigger">
+                  <span>Select Category</span>
+                  <img src="assets/icons/downChevron.svg" class="chevron-icon" />
+                </div>
+                <ul class="custom-options" id="companyOptions"></ul>
+              </div>
+            </div>
+            <hr class="hr" />
+
+            <div class="form-group">
+              <label for="productStatus">
+                <img src="assets/icons/checkbox.svg" sizes="12px" /> Status</label>
+              <div class="custom-select-wrapper">
+                <div class="custom-select-trigger" id="statusTrigger">
+                  <span>Select Category</span>
+                  <img src="assets/icons/downChevron.svg" class="chevron-icon" />
+                </div>
+                <ul class="custom-options" id="statusOptions"></ul>
+              </div>
+            </div>
+          </div>
+
+          <button type="submit" class="add-product-btn">Save</button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+  <script src="/scripts/sidebar.js"></script>
+  <script type="module" src="scripts/products.js"></script>
+</body>
+
+</html>

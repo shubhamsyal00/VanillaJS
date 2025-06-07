@@ -1,0 +1,203 @@
+.sidebar {
+    background-color: #081028;
+    width: 300px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: width 0.3s ease;
+    min-height: 100vh;
+    max-height: 100vh;
+    padding: 0px;
+    border-right: 1px solid #334155;
+}
+
+.sidebar.collapsed {
+    width: 80px;
+}
+
+.sidebar.collapsed .sidebar-top,
+.sidebar.collapsed .menu {
+    padding-left: 0px;
+    padding-right: 0px;
+    gap: 6px;
+    justify-content: center;
+    align-items: center;
+}
+
+.sidebar.collapsed .menu .menu-item {
+    padding-left: 0px;
+    padding-right: 0px;
+    height: 42px;
+    width: 42px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.sidebar-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 38px 28px;
+}
+
+.sidebar.collapsed .text,
+.sidebar.collapsed .brand-text,
+.sidebar.collapsed .username,
+.sidebar.collapsed .chevron {
+    display: none;
+}
+
+.sidebar .brand,
+.sidebar .menu .text,
+.sidebar .user-profile span {
+    transition: opacity 0.3s ease;
+}
+
+.sidebar.collapsed .menu .text,
+.sidebar.collapsed .user-profile span {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.2rem;
+    color: #fff;
+}
+
+.brand-text {
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.toggle-btn {
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+}
+
+.logo {
+    width: 24px;
+    height: 24px;
+}
+
+
+.icon {
+    width: 20px;
+    height: 20px;
+}
+
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    padding: 0 16px;
+    gap: 8px;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    transition: background-color 0.2s;
+    color: #cbd5e1;
+}
+
+.menu-item:hover {
+    color: #fff;
+}
+
+.menu-item.selected {
+    background-color: #0B1739;
+    color: #CB3CFF;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.6rem;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+}
+
+.text {
+    transition: opacity 0.3s ease;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+}
+
+/* Hide all icons by default */
+.icon-container .hover-icon,
+.icon-container .selected-icon {
+    display: none;
+}
+
+/* Show default icon normally */
+.menu-item .default-icon {
+    display: block;
+}
+
+/* Hover state */
+.menu-item:hover .default-icon {
+    display: none;
+}
+
+.menu-item:hover .hover-icon {
+    display: block;
+}
+
+/* Selected state */
+.menu-item.selected .default-icon,
+.menu-item.selected .hover-icon {
+    display: none;
+}
+
+.menu-item.selected .selected-icon {
+    display: block;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    padding-top: 1rem;
+    border-top: 1px solid #334155;
+    padding: 20px 28px;
+}
+
+.user-profile .avatar {
+    height: 32px;
+    width: 32px;
+}
+
+.sidebar.collapsed .user-profile {
+    padding-left: 0px;
+    padding-right: 0px;
+    justify-content: center;
+}
+.sidebar.collapsed .sidebar-top .toggle-btn{
+    transform: rotate(180deg);
+}
+
+.sidebar.collapsed .user-profile .toggle-btn{
+    display: none;
+}

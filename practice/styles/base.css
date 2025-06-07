@@ -1,0 +1,32 @@
+:root {
+    --primary: #7a18f4;
+    --bg-dark: #081028;
+    --bg-light: #1e293b;
+    --bg-md-dark: #0B1739;
+    --text-light: #AEB9E1;
+    --text-dark: #020617;
+    --accent: #14b8a6;
+    --red: #ef4444;
+    --positive: #4ade80;
+    --light-gray: #343B4F;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  

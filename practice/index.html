@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashdark X - Dashboard</title>
+    <link rel="stylesheet" href="styles/base.css" />
+    <link rel="stylesheet" href="styles/dashboard.css" />
+    <link rel="stylesheet" href="styles/sideBar.css" />
+
+</head>
+
+<body>
+    <div class="container">
+        <aside class="sidebar" id="sidebar">
+            <div>
+                <div class="sidebar-top">
+                    <div class="brand">
+                        <img src="assets/LogoIcon.svg" alt="Logo" class="logo" />
+                        <span class="brand-text">Dashdark X</span>
+                    </div>
+                    <img class="toggle-btn" src="assets/icons/leftChevron.svg" alt="icon" id="toggleSidebar" />
+                </div>
+
+                <nav class="menu">
+                    <a href="index.html" class="menu-item selected" id="dashboardMenu">
+                        <div class="icon-container">
+                            <img src="assets/icons/defaultHome.svg" class="icon default-icon" />
+                            <img src="assets/icons/hoverHome.svg" class="icon hover-icon" />
+                            <img src="assets/icons/selectedHome.svg" class="icon selected-icon" />
+                        </div>
+                        <span class="text">Dashboard</span>
+                    </a>
+                    <a href="products.html" class="menu-item" id="dashboardMenu">
+                        <div class="icon-container">
+                            <img src="assets/icons/defaultProduct.svg" class="icon default-icon" />
+                            <img src="assets/icons/hoverProduct.svg" class="icon hover-icon" />
+                            <img src="assets/icons/selectedProduct.svg" class="icon selected-icon" />
+                        </div>
+                        <span class="text">Product List</span>
+                    </a>
+                </nav>
+            </div>
+            <div class="user-profile">
+                <div style="display: flex;align-items: center;gap: 8px;">
+                    <img src="assets/icons/userProfile.svg" alt="User" class="avatar" />
+                    <span class="username">John Carter</span>
+                </div>
+
+                <img class="toggle-btn" src="assets/icons/rightChevron.svg" alt="icon" />
+            </div>
+        </aside>
+
+        <main class="dashboard">
+            <header class="dashboard-header">
+                <h1 style="color: #fff;">Welcome back, John</h1>
+                <p style="font-size: 12px; font-weight: 400;">Measure your advertising ROI and report website traffic.
+                </p>
+            </header>
+            <section class="cards">
+                <div class="card">
+                    <div style="display: flex; align-items: center;gap:5px">
+                        <img src="assets/icons/eyeIcon.svg" alt="Pageviews" height="14px" width="14px" />
+                        <h5 class="sub-head">
+                            Pageviews</h5>
+                    </div>
+                    <div class="card-info">
+                        <p id="pageviews">-</p>
+                        <span class="change positive">
+                            28.4%
+                            <img src="assets/icons/upIcon.svg" alt="Up" />
+                        </span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div style="display: flex; align-items: center;gap:5px">
+                        <img src="assets/icons/usersIcon.svg" alt="Pageviews" height="14px" width="14px" />
+                        <h5 class="sub-head">Monthly users</h5>
+                    </div>
+                    <div class="card-info">
+                        <p id="monthlyUsers">-</p>
+                        <span class="change negative">
+                            12.6%
+                            <img src="assets/icons/downIcon.svg" alt="Down" />
+                        </span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div style="display: flex; align-items: center;gap:5px">
+                        <img src="assets/icons/addIcon.svg" alt="Pageviews" height="14px" width="14px" />
+                        <h5 class="sub-head">New sign ups</h5>
+                    </div>
+                    <div class="card-info">
+                        <p id="signups">-</p>
+                        <span class="change positive">
+                            28.4%
+                            <img src="assets/icons/upIcon.svg" alt="Up" />
+                        </span>
+                    </div>
+                </div>
+                <div class="card">
+                    <div style="display: flex; align-items: center;gap:5px">
+                        <img src="assets/icons/defaultProduct.svg" alt="Pageviews" height="14px" width="14px" />
+                        <h5 class="sub-head">Subscriptions</h5>
+                    </div>
+                    <div class="card-info">
+                        <p id="subscriptions">-</p>
+                        <span class="change positive">
+                            28.4%
+                            <img src="assets/icons/upIcon.svg" alt="Up" />
+                        </span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="graph-section">
+                <div class="graph-card">
+                    <div
+                        style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+
+                        <!-- LEFT: Revenue Text + Value -->
+                        <div class="graph-header">
+                            <h5 class="sub-head">Total revenue</h5>
+                            <div class="graph-meta"
+                                style="display: flex; align-items: center; gap: 0.5rem; margin-top: 12px;">
+                                <span id="totalRevenue" class="value">$240.8K</span>
+                                <span class="change positive">
+                                    24.6%
+                                    <img src="assets/icons/upIcon.svg" alt="up" />
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- CENTER: Legend -->
+                        <div style="display: flex; align-items: center; gap: 16px;">
+                            <div class="legend" style="display: flex; align-items: center; gap: 1rem;">
+                                <div style="display: flex; align-items: center; gap: 6px;">
+                                    <span
+                                        style="width: 8px; height: 8px; background-color: #CB3CFF; border-radius: 50%; display: inline-block;"></span>
+                                    <span class="legend-label">Revenue</span>
+                                </div>
+                                <div style="display: flex; align-items: center; gap: 6px;">
+                                    <span
+                                        style="width: 8px; height: 8px; background-color: #00C2FF; border-radius: 50%; display: inline-block;"></span>
+                                    <span class="legend-label">Expenses</span>
+                                </div>
+                            </div>
+
+                            <!-- RIGHT: Date Dropdown -->
+                            <div class="custom-select-wrapper">
+                                <div class="custom-select-trigger" id="selectTrigger">
+                                    <img src="assets/icons/calendarIcon.svg" alt="Calendar" class="calendar-icon" />
+                                    <span id="selectedYear">Jan 2025 – Dec 2025</span>
+                                    <img src="assets/icons/downChevron.svg" alt="Dropdown Icon" class="chevron-icon" />
+                                </div>
+                                <ul class="custom-options" id="optionsList">
+                                    <li data-value="2025" class="option selected">Jan 2025 – Dec 2025
+                                        <img src="assets/icons/check.svg" alt="Dropdown Icon" class="tick" />
+                                    </li>
+                                    <li data-value="2024" class="option">Jan 2024 – Dec 2024
+                                        <img src="assets/icons/check.svg" alt="Dropdown Icon" class="tick" />
+
+                                    </li>
+                                    <li data-value="2023" class="option">Jan 2023 – Dec 2023
+                                        <img src="assets/icons/check.svg" alt="Dropdown Icon" class="tick" />
+
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <canvas id="lineChart"></canvas>
+                    <div id="chart-tooltip"
+                        style="position: absolute; pointer-events: none; background: #0B1739; padding: 12px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.2); display: none; z-index: 1000;">
+                        <div class="graph-meta" style="display: flex; align-items: center; gap: 8px;">
+                            <span id="tooltip-value" style="font-size: 16px; font-weight: 500; color:#fff;">$0.0K</span>
+                            <span class="change positive">
+                                <span id="tooltip-change">
+                                    +0%</span>
+                                <img src="assets/icons/upIcon.svg" alt="up" />
+                            </span>
+                        </div>
+                        <div style="font-size: 12px; color: #cbd5e1; margin-top: 10px;" id="tooltip-date">Date</div>
+                    </div>
+
+                </div>
+
+                <div class="graph-right">
+                    <!-- Profit Card -->
+                    <div class="mini-graph-card">
+                        <div class="graph-header">
+                            <div style="display: flex; align-items: center; gap: 4px; margin-bottom: 8px;">
+                                <img src="assets/icons/graph.svg" alt="graph" height="12px" width="12px" />
+                                <h5 class="sub-head">Total profit</h5>
+                            </div>
+                            <div class="graph-meta">
+                                <span class="value">$144.6K</span>
+                                <span class="change positive">
+                                    28.5%
+                                    <img src="assets/icons/upIcon.svg" alt="up" />
+                                </span>
+                            </div>
+                        </div>
+                        <canvas id="barChart"></canvas>
+                        <p style="font-size: 14px; font-weight: 400; margin-top: 20px;">Last 12 months</p>
+                    </div>
+
+                    <!-- Sessions Card -->
+                    <div class="mini-graph-card">
+                        <div class="graph-header">
+                            <div style="display: flex; align-items: center; gap: 4px;">
+                                <img src="assets/icons/clock.svg" alt="graph" height="12px" width="12px" />
+                                <h5 class="sub-head">Total sessions</h5>
+                            </div>
+                            <div class="graph-meta">
+                                <span class="value">400</span>
+                                <span class="change positive">
+                                    16.8%
+                                    <img src="assets/icons/upIcon.svg" alt="up" />
+                                </span>
+                            </div>
+                        </div>
+                        <canvas id="sessionsChart"></canvas>
+                        <p style="font-size: 12px;font-weight: 400; margin-top: 20px">
+                            <span class="change positive">• Live</span> 10k visitors
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/scripts/sidebar.js"></script>
+    <script src="/scripts/dashboard.js"></script>
+</body>
+
+</html>
